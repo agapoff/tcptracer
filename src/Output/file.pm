@@ -24,7 +24,7 @@ sub push {
 
 	my $date = strftime "%Y-%m-%d %H:%M:%S", localtime;
 	if (open FILE, '>>'.$cfg->{path}) {
-		print FILE $date.' '.$event->{local_ip}.':'.$event->{local_port}.' '.$event->{side}.' '.$event->{peer_ip}.':'.$event->{peer_port}."\n";
+		print FILE $date.' '.$event->{local_ip}.':'.$event->{local_port}.' '.$event->{side}.' '.$event->{peer_ip}.':'.$event->{peer_port}.' '.$event->{task}.' '.$event->{state}."\n";
 		close FILE;
 	} else {
 		$write_log->("Error opening file ".$cfg->{path});
