@@ -80,7 +80,7 @@ sub push {
 	print "Sending to ".$cfg->{url}."/$index/tcpretr"." : ".$data."\n" if ($cfg->{debug} eq 'true');
 	my $response = $ua->post($cfg->{url}."/$index/tcpretr", 'Content' => $data);
 	if ($response->is_success) {
-		$write_log->("Successfully sent event to ES");
+		$write_log->("Successfully sent event to ES") if ($cfg->{debug} eq 'true');
         return 1;
     } else {
         $write_log->("Failed writing event to index");

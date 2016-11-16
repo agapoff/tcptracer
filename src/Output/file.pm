@@ -29,7 +29,6 @@ sub push {
 	} else {
 		$write_log->("Error opening file ".$cfg->{path});
 	}
-    $write_log->("Pushing to file ".$cfg->{path});
 }
 
 
