@@ -49,8 +49,18 @@ TCP Tracer
 
 %pre
 
+%post
+%if 0%{?el7:1}
+if [ $1 -eq 2 ]; then
+    /usr/bin/systemctl daemon-reload >/dev/null 2>&1 || :
+fi
+%systemd_post %{name}.service
+%else
+chkconfig --add %{name}
+%endif
 
 %changelog
 * Wed Nov 16 2016 Vitaly Agapov <agapov.vitaly@gmail.com> - 1.0-2
 - Initial build
 - Remove unneeded messages in the log
+- systemctl daemon-reload
