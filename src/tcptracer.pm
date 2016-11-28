@@ -44,6 +44,10 @@ sub new {
 	bless $self, $class;
 	write_log("Hello from new");
 	$self->{cfg} = &read_config;
+	if (ref($self->{cfg}->{output}) ne 'ARRAY') {
+		    $self->{cfg}->{output} = [ $self->{cfg}->{output} ];
+	}
+
 
 	# check permissions
 	#chdir "$tracing" or die "ERROR: accessing tracing. Are you root? Ftrace enabled? debugfs mounted?";
