@@ -28,9 +28,6 @@ my @tcpstate = ( '',
 
 write_log ('TCPTracer initializing');
 
-#my $cfg = &read_config;
-
-#my %output = map { $_ => 1 } @{$cfg->{output}};
 sub writeto;
 sub create_kprobe;
 sub enable_kprobe;
@@ -50,7 +47,6 @@ sub new {
 
 
 	# check permissions
-	#chdir "$tracing" or die "ERROR: accessing tracing. Are you root? Ftrace enabled? debugfs mounted?";
 	(-d "$tracing") || die "ERROR: accessing tracing. Are you root? Ftrace enabled? debugfs mounted?";
 
 	# ftrace lock
@@ -138,7 +134,7 @@ sub run {
 			}
 
 			my %event = (
-				side       => $rest =~ /$kname_tlp/ ? "in" : "out",
+				syscall    => my ($syscall) = $rest =~ /\(([\w\_]+)/,
 				local_ip   => $laddr,
 				local_port => $lport,
 				peer_ip    => $raddr,

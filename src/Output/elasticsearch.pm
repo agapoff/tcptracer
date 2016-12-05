@@ -18,7 +18,7 @@ our %EStemplate = (
 				peer_ip => { type => "ip" },
 				local_port => { type => "integer" },
 				peer_port => { type => "integer" },
-				side => { type => "string" },
+				syscall => { type => "string" },
 				task => { type => "string" },
 				state => { type => "string" },
 				hostname => { type => "string" }

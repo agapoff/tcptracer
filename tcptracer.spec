@@ -1,7 +1,7 @@
 # if you make changes, the it is advised to increment this number, and provide 
 # a descriptive suffix to identify who owns or what the change represents
 # e.g. release_version 2.MSW
-%define release_version 2
+%define release_version 3
 
 # if you wish to compile an rpm without ibverbs support, compile like this...
 # rpmbuild -ta glusterfs-1.3.8pre1.tar.gz --without ibverbs
@@ -60,6 +60,9 @@ chkconfig --add %{name}
 %endif
 
 %changelog
+* Mon Dec 05 2016 Vitaly Agapov <agapov.vitaly@gmail.com> - 1.0-3
+- syscall field instead of side
+
 * Wed Nov 16 2016 Vitaly Agapov <agapov.vitaly@gmail.com> - 1.0-2
 - Initial build
 - Remove unneeded messages in the log
