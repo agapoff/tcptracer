@@ -17,9 +17,13 @@ The project is structured for building the RPM-package with SystemD unit-file. B
 
 1. Edit config.ini for your needs.
 2. If you have installed RPM-package with SystemD unit-file:
+```
     systemctl start tcptracer
+```
 3. If you are using the standalone application:
+```
     ./tcptracer.pl
+```
 
 
 ### Contributing
